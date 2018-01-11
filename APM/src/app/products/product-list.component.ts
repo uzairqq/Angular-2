@@ -65,4 +65,8 @@ constructor(){
         ngOnInit():void{
             console.log("This is NgOnit");
         }
+
+        onRatingClicked(message:string){
+            this.pageTitle='Product List'+message;
+        }
 }
