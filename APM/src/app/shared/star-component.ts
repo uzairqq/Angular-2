@@ -3,8 +3,8 @@ import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
     selector:'pm-star',
-    templateUrl:'./star-component.html',
-    styleUrls:['./star-component.css']
+    templateUrl: './star.component.html',
+    styleUrls:['./star.component.css']
 })
 export class StarComponent implements OnChanges{
     rating:number=4;
