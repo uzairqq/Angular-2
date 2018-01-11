@@ -53,20 +53,16 @@ constructor(){
     this.filteredProducts=this.products;
     //this.listFilter=''
 }
-performFilter(filterBy:string):IProduct[]
-{
-    filterBy=filterBy.toLocaleLowerCase();
-    return this.products.filter((product:IProduct)=>
-    product.productName.toLocaleLowerCase().indexOf(filterBy) !==-1);
-}
-
+        performFilter(filterBy:string):IProduct[]
+        {
+            filterBy=filterBy.toLocaleLowerCase();
+            return this.products.filter((product:IProduct)=>
+            product.productName.toLocaleLowerCase().indexOf(filterBy) !==-1);
+        }
         toggleImage():void{
             this.showImage=!this.showImage;
         }
-
         ngOnInit():void{
             console.log("This is NgOnit");
         }
-
-       
 }
