@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import{IProduct} from "./product"
 import { OnInit } from "@angular/core";
 import { ProductService } from "./productService";
+import { error } from "util";
 @Component({
     selector:'pm-products',
     templateUrl:'./product-list.component.html',
@@ -15,6 +16,7 @@ export class ProductListComponent implements OnInit {
      imageMargin:number=2;
      showImage:boolean=false;
     //  listFilter:string;
+    errorMessage:string;
     
      _listFilter:string;
     get listFilter():string{
@@ -42,8 +44,14 @@ export class ProductListComponent implements OnInit {
             this.showImage=!this.showImage;
         }
         ngOnInit():void{
-            this.products=this._productList.getProducts();
-            this.filteredProducts=this.products;
+            this._productList.getProducts()
+            .subscribe(products=>{
+                this.products=products;
+                this.filteredProducts=this.products;
+            },
+            error=>this.errorMessage=<any>error
+            );
+            
         }
 
         onRatingClicked(message:string){
