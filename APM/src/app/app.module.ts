@@ -8,7 +8,8 @@ import {StarComponent} from "./shared/star-component"
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './products/product-details.component';
 import { WelcomeComponent } from './home/welcome.component';
-import {RouterModule} from '@angular/router'
+import {RouterModule} from '@angular/router';
+import { ProductGuardService } from './products/product-guard.service'
 
 @NgModule({
     declarations: [
@@ -31,7 +32,7 @@ import {RouterModule} from '@angular/router'
       {path:'*',redirectTo:'welcome',pathMatch:'full'}
     ])
   ],
-  providers: [],
+  providers: [ProductGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
