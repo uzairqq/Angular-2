@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
-import {ActivatedRoute} from '@angular/router'; 
+import {ActivatedRoute,Router} from '@angular/router'; 
+
 
 @Component({
   templateUrl: './product-details.component.html',
@@ -9,7 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 pageTitle:string='Product Detail:  ';
 product:IProduct;
-  constructor(private _route:ActivatedRoute) { }
+  constructor(private _route:ActivatedRoute,
+              private _router:Router) { }
 
   ngOnInit() {
     let id=+this._route.snapshot.paramMap.get('id');
@@ -24,6 +26,10 @@ product:IProduct;
       "starRating": 4.2,
       "imageUrl": "http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
     }
+  }
+
+  OnBack():void{
+    this._router.navigate(['/products'])
   }
 
 }
