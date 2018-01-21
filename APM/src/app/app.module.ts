@@ -9,7 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './products/product-details.component';
 import { WelcomeComponent } from './home/welcome.component';
 import {RouterModule} from '@angular/router';
-import { ProductGuardService } from './products/product-guard.service'
+import { ProductGuardService } from './products/product-guard.service';
+import { ProductModule } from './products/product.module'
 
 @NgModule({
     declarations: [
@@ -22,7 +23,7 @@ import { ProductGuardService } from './products/product-guard.service'
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,  FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path:'products',component:ProductListComponent},
@@ -32,7 +33,8 @@ import { ProductGuardService } from './products/product-guard.service'
       {path:'welcome',component:WelcomeComponent},
       {path:'',redirectTo:'welcome',pathMatch:'full'},
       {path:'*',redirectTo:'welcome',pathMatch:'full'}
-    ])
+    ]),
+    ProductModule
   ],
   providers: [ProductGuardService],
   bootstrap: [AppComponent]
